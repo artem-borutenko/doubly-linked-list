@@ -21,7 +21,7 @@ class LinkedList {
 
 		else{
 			this._tail.next=node;
-		    node.prev=this.tail;
+		    node.prev=this._tail;
 			
 			
 		}
@@ -100,10 +100,33 @@ class LinkedList {
 		var current=this._head;
 		
 		
-	
-        
-		
-		
+		for(var i=0;i<index;i++){
+			
+			current=current.next;
+			
+			
+		}
+		  if (current.prev!=null)
+            {
+                current.prev.next = current.next;
+                
+
+            }
+            else
+            {
+                this._head = current.next;
+              
+            }
+            if (current.next != null)
+            {
+                current.next.prev = current.prev;
+
+            }
+            else
+            {
+                this._tail = current.prev;
+            }
+
 	}
 
     reverse() {}
